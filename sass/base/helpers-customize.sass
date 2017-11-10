@@ -1,0 +1,89 @@
+// Typography
+
+@each $i, $size in $sizes-px
+  .is-size-#{$i}
+    font-size: $size !important
+  +mobile
+    .is-size-#{$i}-mobile
+      font-size: $size !important
+  +tablet
+    .is-size-#{$i}-tablet
+      font-size: $size !important
+  +touch
+    .is-size-#{$i}-touch
+      font-size: $size !important
+  +desktop
+    .is-size-#{$i}-desktop
+      font-size: $size !important
+  +widescreen
+    .is-size-#{$i}-widescreen
+      font-size: $size !important
+  +fullhd
+    .is-size-#{$i}-fullhd
+      font-size: $size !important
+
+.is-border-bottom-only
+  border-top: 0 !important
+  border-left: 0 !important
+  border-right: 0 !important
+
+.is-hidden
+  display: none;
+
+$positions: ('top','left','bottom','right');
+
+@each $name, $size in $sizes-space 
+  .is-m-#{$name} 
+    margin: $size !important
+  .is-p-#{$name} 
+    padding: $size !important    
+  @each $position in $positions     
+    .is-m-#{$name}-#{$position}
+       margin-#{$position}: $size !important
+    .is-p-#{$name}-#{$position}
+       padding-#{$position}: $size !important
+
+.font-song
+    font-family: $family-song !important
+.font-yahei
+    font-family: $family-yahei !important    
+.g-is-bolder
+    font-weight: bolder !important
+    
+$cursor-types: ('pointer');
+@each $cursor in $cursor-types  
+  .is-cursor-#{$cursor}
+     cursor: #{$cursor}!important
+
+//Flex
+div.g-is-flex
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    &.g-is-horz-center
+        -webkit-box-pack: center
+        -ms-flex-pack: center
+        justify-content: center 
+    &.g-is-vert-center
+        align-items: center
+div.is-grouped
+    &.g-is-horz-center
+        -webkit-box-pack: center
+        -ms-flex-pack: center
+        justify-content: center 
+    &.g-is-vert-center
+        align-items: center    
+        
+// DIV
+div
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.bg-is-#{$name}
+      background-color: $color
+div
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.bgc-is-#{$name}
+      background-color: $color
+      color: $color-invert    
